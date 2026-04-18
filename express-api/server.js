@@ -13,7 +13,9 @@ const FormData = require("form-data");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const PYTHON_SERVICE = process.env.PYTHON_SERVICE_URL || "http://127.0.0.1:8010";
+const PYTHON_SERVICE = process.env.PYTHON_SERVICE_HOSTPORT 
+  ? `http://${process.env.PYTHON_SERVICE_HOSTPORT}` 
+  : (process.env.PYTHON_SERVICE_URL || "http://127.0.0.1:8010");
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(

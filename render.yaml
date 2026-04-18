@@ -20,8 +20,8 @@ services:
     buildCommand: npm install
     startCommand: node server.js
     envVars:
-      - key: PYTHON_SERVICE_URL
+      - key: PYTHON_SERVICE_HOSTPORT
         fromService:
           type: web
           name: ai-data-python-service
-          property: url
+          property: hostport
