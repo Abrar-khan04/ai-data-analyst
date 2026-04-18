@@ -1,0 +1,27 @@
+services:
+  # The Python Backend (Microservice)
+  - type: web
+    name: ai-data-python-service
+    env: python
+    region: ohio
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # You will enter this securely in the Render dashboard
+
+  # The Express Backend (API Gateway)
+  - type: web
+    name: ai-data-express-gateway
+    env: node
+    region: ohio
+    rootDir: express-api
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PYTHON_SERVICE_URL
+        fromService:
+          type: web
+          name: ai-data-python-service
+          property: url

@@ -1,0 +1,27 @@
+date,region,product,category,revenue,orders
+2024-01-15,North,Alpha Pro,Electronics,12500,42
+2024-01-22,South,Beta Lite,Electronics,8900,31
+2024-02-03,East,Gamma Kit,Home,15200,55
+2024-02-18,West,Delta Max,Electronics,22100,67
+2024-03-01,North,Epsilon Air,Home,9800,28
+2024-03-14,South,Alpha Pro,Electronics,13400,44
+2024-03-29,East,Zeta Plus,Office,7600,22
+2024-04-05,West,Beta Lite,Electronics,9100,30
+2024-04-20,North,Gamma Kit,Home,16800,58
+2024-05-02,South,Delta Max,Electronics,24500,72
+2024-05-17,East,Epsilon Air,Home,10200,29
+2024-05-30,West,Alpha Pro,Electronics,14100,46
+2024-06-10,North,Zeta Plus,Office,8100,24
+2024-06-25,South,Gamma Kit,Home,17500,61
+2024-07-08,East,Beta Lite,Electronics,9500,32
+2024-07-22,West,Delta Max,Electronics,23800,70
+2024-08-03,North,Epsilon Air,Home,11000,33
+2024-08-19,South,Alpha Pro,Electronics,12900,43
+2024-09-01,East,Gamma Kit,Home,18200,63
+2024-09-15,West,Zeta Plus,Office,7900,23
+2024-10-02,North,Beta Lite,Electronics,9700,34
+2024-10-18,South,Delta Max,Electronics,25100,74
+2024-11-05,East,Epsilon Air,Home,10500,31
+2024-11-20,West,Alpha Pro,Electronics,13800,45
+2024-12-01,North,Gamma Kit,Home,19000,65
+2024-12-15,South,Beta Lite,Electronics,10100,35

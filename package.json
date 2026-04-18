@@ -1,0 +1,15 @@
+{
+  "name": "ai-data-analyst-dashboard",
+  "version": "1.0.0",
+  "description": "Root package to run all services concurrently",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:express\" \"npm run dev:python\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:express": "cd express-api && npm run dev",
+    "dev:python": "cd backend && python -m uvicorn main:app --host 127.0.0.1 --port 8010 --reload",
+    "install:all": "npm install && cd frontend && npm install && cd ../express-api && npm install && cd ../backend && pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

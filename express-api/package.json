@@ -1,0 +1,17 @@
+{
+  "name": "ai-data-analyst-api",
+  "version": "1.0.0",
+  "description": "Express.js API gateway for AI Data Analyst Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "form-data": "^4.0.5",
+    "multer": "^1.4.5-lts.1"
+  }
+}

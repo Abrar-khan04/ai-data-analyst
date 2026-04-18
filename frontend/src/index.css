@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+@theme {
+  --color-surface-900: #06080d;
+  --color-surface-800: #0c0f18;
+  --color-surface-700: #121622;
+  --color-surface-600: #1a1f30;
+  --color-surface-500: #252b40;
+  --color-border: #2a3150;
+  --color-text-primary: #e8eaf0;
+  --color-text-muted: #8892b0;
+  --color-accent: #7c3aed;
+  --color-accent-light: #a78bfa;
+  --color-accent-dim: rgba(124, 58, 237, 0.15);
+  --color-emerald: #34d399;
+  --color-emerald-dim: rgba(52, 211, 153, 0.15);
+  --color-rose: #fb7185;
+  --color-rose-dim: rgba(251, 113, 133, 0.12);
+}
+
+/* ── Base layer ────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-surface-900);
+    color: var(--color-text-primary);
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-800);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-500);
+    border-radius: 3px;
+  }
+}
+
+/* ── Utility components ────────────────────────────────────────────────────── */
+@layer components {
+  /* Glass panels */
+  .glass-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(18, 22, 34, 0.8),
+      rgba(26, 31, 48, 0.6)
+    );
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .glass-panel-sm {
+    background: rgba(18, 22, 34, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 40%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2),
+      0 0 60px rgba(124, 58, 237, 0.06);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.2),
+      0 0 60px rgba(52, 211, 153, 0.06);
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #7c3aed, #34d399);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Pulsing dot */
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-emerald);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.3);
+    }
+  }
+
+  /* Shimmer loading */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-surface-700) 25%,
+      var(--color-surface-600) 50%,
+      var(--color-surface-700) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Float animation */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Fade in up */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  /* Spin slow */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+}
